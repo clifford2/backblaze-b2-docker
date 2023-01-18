@@ -7,11 +7,11 @@ Based on <https://github.com/tianon/dockerfiles/tree/master/backblaze-b2>, with 
 
 Build with:
 
-	docker build --pull -t cliffordw/backblaze-b2 .
+	podman build --pull -t cliffordw/backblaze-b2 .
 
 Usage:
 
 	CONFDIR=$HOME/b2config
 	test -d $CONFDIR || mkdir -p $CONFDIR
-	docker run --rm -it -u $(id -u) -v $CONFDIR:/home/b2 -v $PWD:/data -w /data cliffordw/backblaze-b2 authorize-account
-	docker run --rm -it -u $(id -u) -v $CONFDIR:/home/b2 -v $PWD:/data -w /data cliffordw/backblaze-b2 <command>
+	podman run --rm -it -u $(id -u) -v $CONFDIR:/home/b2 -v $PWD:/data -w /data cliffordw/backblaze-b2 authorize-account
+	podman run --rm -it -u $(id -u) -v $CONFDIR:/home/b2 -v $PWD:/data -w /data cliffordw/backblaze-b2 <command>
