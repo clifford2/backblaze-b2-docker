@@ -8,7 +8,7 @@ Based on <https://github.com/tianon/dockerfiles/tree/master/backblaze-b2>, with 
 Build with:
 
 ```sh
-podman build --pull -t docker.io/cliffordw/backblaze-b2:4.1.0 .
+podman build --pull -t docker.io/cliffordw/backblaze-b2:4.2.0 .
 ```
 
 Usage:
@@ -16,6 +16,6 @@ Usage:
 ```sh
 CONFDIR=$HOME/b2config
 test -d $CONFDIR || mkdir -p $CONFDIR
-podman run --rm -it -v $CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.1.0 account authorize
-podman run --rm -it -v $CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.1.0 <command>
+podman run --rm -it -v $CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.2.0 account authorize
+podman run --rm -it -v $CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.2.0 <command>
 ```
