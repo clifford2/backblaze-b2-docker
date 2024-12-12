@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.13.0-alpine3.20
+FROM docker.io/library/python:3.13.1-alpine3.21
 
 # Find latest release number at https://github.com/Backblaze/B2_Command_Line_Tool
 ENV BACKBLAZE_B2_VERSION 4.2.0
