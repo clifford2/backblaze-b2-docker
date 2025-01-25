@@ -4,4 +4,4 @@ version = 1
 path = ["README.md"]
 precedence = "closest"
 SPDX-FileCopyrightText = "© 2021 Clifford Weinmann <https://www.cliffordweinmann.com/>"
-SPDX-License-Identifier = "BSD-2-Clause"
+SPDX-License-Identifier = "Unlicense"
