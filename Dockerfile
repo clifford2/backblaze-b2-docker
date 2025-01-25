@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: © 2021 Clifford Weinmann <https://www.cliffordweinmann.com/>
+#
+# SPDX-License-Identifier: BSD-2-Clause
+
 FROM docker.io/library/python:3.13.1-alpine3.21
 
 # Find latest release number at https://github.com/Backblaze/B2_Command_Line_Tool
