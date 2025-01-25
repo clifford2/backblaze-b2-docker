@@ -19,23 +19,25 @@ Based on <https://github.com/tianon/dockerfiles/tree/master/backblaze-b2>, with 
 Build with:
 
 ```sh
-podman build --pull -t docker.io/cliffordw/backblaze-b2:4.2.0-1 .
+podman build --pull -t docker.io/cliffordw/backblaze-b2:4.3.0-1 .
 ```
 
 Usage:
 
 ```sh
-CONFDIR=$HOME/b2config
-test -d $CONFDIR || mkdir -p $CONFDIR
-podman run --rm -it -v $CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.2.0-1 account authorize
-podman run --rm -it -v $CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.2.0-1 <command>
+B2CONFDIR=$HOME/b2config
+test -d $B2CONFDIR || mkdir -p $B2CONFDIR
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.0-1 account authorize
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.0-1 <command>
 ```
 
 ## License & Disclaimer
 
-This code is shared under the BSD 2-Clause "Simplified" License.
+This is free and unencumbered software released into the public domain
+
 It is provided *AS IS*, without warranty of any kind.
-See [`LICENSES/BSD-2-Clause.txt`](LICENSES/BSD-2-Clause.txt) for the full license text and disclaimer.
+
+See [`LICENSES/Unlicense.txt`](LICENSES/Unlicense.txt) for the full license text and disclaimer.
 
 ## Security
 

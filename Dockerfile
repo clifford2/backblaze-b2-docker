@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: © 2021 Clifford Weinmann <https://www.cliffordweinmann.com/>
 #
-# SPDX-License-Identifier: BSD-2-Clause
+# SPDX-License-Identifier: Unlicense
 
 FROM docker.io/library/python:3.13.1-alpine3.21
 
 # Find latest release number at https://github.com/Backblaze/B2_Command_Line_Tool
-ENV BACKBLAZE_B2_VERSION 4.2.0
+ENV BACKBLAZE_B2_VERSION 4.3.0
 
 RUN set -eux; \
 	/usr/local/bin/python3 -m pip install --upgrade pip; \
