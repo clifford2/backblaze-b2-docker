@@ -7,7 +7,7 @@ This code builds a Backblaze B2 [CLI](https://www.backblaze.com/b2/docs/quick_co
 Version information:
 
 - B2 CLI version: 4.2.0
-- Container build version: 1
+- Container build version: 2
 
 Based on <https://github.com/tianon/dockerfiles/tree/master/backblaze-b2>, with these changes:
 
@@ -19,7 +19,7 @@ Based on <https://github.com/tianon/dockerfiles/tree/master/backblaze-b2>, with 
 Build with:
 
 ```sh
-podman build --pull -t docker.io/cliffordw/backblaze-b2:4.3.0-1 .
+podman build --pull -t docker.io/cliffordw/backblaze-b2:4.3.0-2 .
 ```
 
 Usage:
@@ -27,8 +27,8 @@ Usage:
 ```sh
 B2CONFDIR=$HOME/b2config
 test -d $B2CONFDIR || mkdir -p $B2CONFDIR
-podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.0-1 account authorize
-podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.0-1 <command>
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.0-2 account authorize
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.0-2 <command>
 ```
 
 ## License & Disclaimer
