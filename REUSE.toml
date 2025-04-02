@@ -1,7 +1,7 @@
 version = 1
 
 [[annotations]]
-path = ["README.md"]
+path = ["README.md", ".env"]
 precedence = "closest"
 SPDX-FileCopyrightText = "© 2021 Clifford Weinmann <https://www.cliffordweinmann.com/>"
 SPDX-License-Identifier = "Unlicense"
