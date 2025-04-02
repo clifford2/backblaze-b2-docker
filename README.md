@@ -16,20 +16,20 @@ Based on <https://github.com/tianon/dockerfiles/tree/master/backblaze-b2>, with 
 
 ## How To Use
 
-Build with:
-
-```sh
-podman build --pull -t docker.io/cliffordw/backblaze-b2:4.3.1-1 .
-```
-
-Usage:
+Use my image:
 
 ```sh
 B2CONFDIR=$HOME/b2config
 test -d $B2CONFDIR || mkdir -p $B2CONFDIR
-podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.1-1 account authorize
-podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.1-1 bucket list
-podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data docker.io/cliffordw/backblaze-b2:4.3.1-1 <command>
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.3.1-1 account authorize
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.3.1-1 bucket list
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.3.1-1 <command>
+```
+
+Build your own copy with:
+
+```sh
+podman build --pull -t backblaze-b2:4.3.1-1 .
 ```
 
 ## License & Disclaimer

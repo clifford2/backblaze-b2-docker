@@ -26,5 +26,5 @@ else
 	set -x
 	sed -Ei 's/^(ENV BACKBLAZE_B2_VERSION) .*/\1 '"$latest"'/' Dockerfile
 	sed -Ei 's|^(B2CLI_VERSION=).*$|\1'"'${latest}'|" .env
-	sed -i -e "s|cliffordw/backblaze-b2:[^ ]*|cliffordw/backblaze-b2:${latest}-${RELEASE_VERSION}|" -e "s|^- B2 CLI version: .*$|- B2 CLI version: ${latest}|" -e "s|^- Container build version: .*$|- Container build version: ${RELEASE_VERSION}|" README.md
+	sed -i -e "s|backblaze-b2:[^ ]*|backblaze-b2:${latest}-${RELEASE_VERSION}|" -e "s|^- B2 CLI version: .*$|- B2 CLI version: ${latest}|" -e "s|^- Container build version: .*$|- Container build version: ${RELEASE_VERSION}|" README.md
 fi
