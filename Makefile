@@ -1,6 +1,5 @@
 # SPDX-FileCopyrightText: © 2019 Clifford Weinmann <https://www.cliffordweinmann.com/>
-#
-# SPDX-License-Identifier: MIT-0
+# SPDX-License-Identifier: Unlicense
 
 # Use podman or docker?
 ifeq ($(shell command -v podman 2> /dev/null),)

@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # SPDX-FileCopyrightText: © 2019 Clifford Weinmann <https://www.cliffordweinmann.com/>
-#
-# SPDX-License-Identifier: MIT-0
+# SPDX-License-Identifier: Unlicense
 
 # A quick helper for Make to get values from .env
 source ./.env
