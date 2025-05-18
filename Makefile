@@ -51,11 +51,3 @@ git-push:
 	@git commit
 	@git tag -m "Version $(B2CLI_VERSION) release $(RELEASE_VERSION)" "$(IMAGE_TAG)"
 	@git push --follow-tags
-
-.PHONY: docker-hub-push
-docker-hub-push: test
-	$(CONTAINER_ENGINE) login docker.io
-	$(CONTAINER_ENGINE) tag $(IMAGE_NAME):$(IMAGE_TAG) docker.io/cliffordw/$(IMAGE_NAME):$(IMAGE_TAG)
-	$(CONTAINER_ENGINE) push docker.io/cliffordw/$(IMAGE_NAME):$(IMAGE_TAG)
-	$(CONTAINER_ENGINE) tag docker.io/cliffordw/$(IMAGE_NAME):$(IMAGE_TAG) docker.io/cliffordw/$(IMAGE_NAME):latest
-	$(CONTAINER_ENGINE) push docker.io/cliffordw/$(IMAGE_NAME):latest
