@@ -41,6 +41,10 @@ build:
 	$(BUILD_CMD) --pull -t $(IMAGE_NAME):$(IMAGE_TAG) .
 	$(CONTAINER_ENGINE) tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMAGE_NAME):latest
 
+.PHONY: test
+test: build
+	$(CONTAINER_ENGINE) run --rm -it $(IMAGE_NAME):$(IMAGE_TAG) license
+
 .PHONY: git-push
 git-push:
 	@git add .
@@ -49,7 +53,7 @@ git-push:
 	@git push --follow-tags
 
 .PHONY: docker-hub-push
-docker-hub-push:
+docker-hub-push: test
 	$(CONTAINER_ENGINE) login docker.io
 	$(CONTAINER_ENGINE) tag $(IMAGE_NAME):$(IMAGE_TAG) docker.io/cliffordw/$(IMAGE_NAME):$(IMAGE_TAG)
 	$(CONTAINER_ENGINE) push docker.io/cliffordw/$(IMAGE_NAME):$(IMAGE_TAG)

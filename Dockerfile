@@ -5,7 +5,7 @@
 FROM docker.io/library/python:3.13.2-alpine3.21
 
 # Check for updates with `build/update.sh`
-ENV BACKBLAZE_B2_VERSION 4.3.1
+ENV BACKBLAZE_B2_VERSION 4.3.2
 
 LABEL maintainer="Clifford Weinmann <https://www.cliffordweinmann.com/>"
 LABEL org.opencontainers.image.source https://github.com/clifford2/backblaze-b2-docker
