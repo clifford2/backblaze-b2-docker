@@ -2,10 +2,10 @@
 #
 # SPDX-License-Identifier: Unlicense
 
-FROM docker.io/library/python:3.13.5-alpine3.22
+FROM docker.io/library/python:3.13.7-alpine3.22
 
 # Check for updates with `build/update.sh`
-ENV BACKBLAZE_B2_VERSION 4.3.3
+ENV BACKBLAZE_B2_VERSION 4.4.1
 
 LABEL maintainer="Clifford Weinmann <https://www.cliffordweinmann.com/>"
 LABEL org.opencontainers.image.source https://github.com/clifford2/backblaze-b2-docker
