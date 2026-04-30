@@ -23,6 +23,7 @@ B2CLI_VERSION := $(shell bash ./build/getenv B2CLI_VERSION)
 RELEASE_VERSION := $(shell bash ./build/getenv RELEASE_VERSION)
 IMAGE_NAME := $(shell bash ./build/getenv IMAGE_NAME)
 IMAGE_TAG := $(shell bash ./build/getenv IMAGE_TAG)
+IMGRELNAME := $(shell bash ./build/getenv IMGRELNAME)
 
 .PHONY: hello
 hello:
@@ -37,7 +38,7 @@ update-check:
 	@build/update.sh
 
 .PHONY: build
-build:
+build: .check-depends
 	$(BUILD_CMD) --pull -t $(IMAGE_NAME):$(IMAGE_TAG) .
 	$(CONTAINER_ENGINE) tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMAGE_NAME):latest
 
@@ -45,9 +46,27 @@ build:
 test: build
 	$(CONTAINER_ENGINE) run --rm -it $(IMAGE_NAME):$(IMAGE_TAG) license
 
-.PHONY: git-push
-git-push:
+.PHONY: tag-image
+tag-image: .check-depends
+	test ! -z "$(IMGRELNAME)" || (echo "Please specify IMGRELNAME" && false)
+	$(CONTAINER_ENGINE) tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMGRELNAME):$(IMAGE_TAG)
+	$(CONTAINER_ENGINE) tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMGRELNAME):latest
+
+.PHONY: push-image
+push-image: .check-depends tag-image
+	test ! -z "$(IMGRELNAME)" || (echo "Please specify IMGRELNAME" && false)
+	test ! -z "$(REGISTRY_NAME)" && $(CONTAINER_ENGINE) login -u $(REGISTRY_USER) $(REGISTRY_NAME) || echo 'Not logging into registry'
+	$(CONTAINER_ENGINE) push $(IMGRELNAME):$(IMAGE_TAG)
+	$(CONTAINER_ENGINE) push $(IMGRELNAME):latest
+
+.PHONY: git-commit-tag-push
+git-commit-tag-push:
 	@git add .
 	@git commit
 	@git tag -m "Version $(B2CLI_VERSION) release $(RELEASE_VERSION)" "$(IMAGE_TAG)"
 	@git push --follow-tags
+
+# Verify that we have all required dependencies installed
+.PHONY: .check-depends
+.check-depends:
+	command -v podman || command -v docker
