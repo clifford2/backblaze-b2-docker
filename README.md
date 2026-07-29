@@ -6,7 +6,7 @@ This code builds a container image for the Python version of the [Backblaze](htt
 
 Version information:
 
-- B2 CLI version: 4.6.0
+- B2 CLI version: 4.7.1
 - Container build version: 1
 
 Based on <https://github.com/tianon/dockerfiles/tree/master/backblaze-b2>, with these changes:
@@ -21,15 +21,15 @@ Use my image:
 ```sh
 B2CONFDIR=${XDG_CONFIG_HOME:-$HOME/.config}/b2-cli
 test -d $B2CONFDIR || mkdir -p $B2CONFDIR
-podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.6.0-1 account authorize
-podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.6.0-1 bucket list
-podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.6.0-1 <command>
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.7.1-1 account authorize
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.7.1-1 bucket list
+podman run --rm -it -v $B2CONFDIR:/home/b2:z -v $PWD:/data:z -w /data ghcr.io/clifford2/backblaze-b2:4.7.1-1 <command>
 ```
 
 Build your own copy with:
 
 ```sh
-podman build --pull -t backblaze-b2:4.6.0-1 .
+podman build --pull -t backblaze-b2:4.7.1-1 .
 ```
 
 ## License & Disclaimer

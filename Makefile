@@ -44,7 +44,7 @@ build: .check-depends
 
 .PHONY: test
 test: build
-	$(CONTAINER_ENGINE) run --rm -it $(IMAGE_NAME):$(IMAGE_TAG) license
+	$(CONTAINER_ENGINE) run --rm -it $(IMAGE_NAME):$(IMAGE_TAG) version
 
 .PHONY: tag-image
 tag-image: .check-depends
